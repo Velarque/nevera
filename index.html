@@ -125,6 +125,28 @@ td .dots{justify-content:flex-end;display:flex}
   .grid{grid-template-columns:1fr}
   .specs{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ---------- impresión / PDF ---------- */
+@page{size:A4;margin:11mm 9mm}
+@media print{
+  :root,:root[data-theme="dark"]{
+    --paper:#fff;--card:#fff;--ink:#15201b;--muted:#5e6a63;--line:#cfd8cf;
+    --accent:#1f6f4c;--accent-ink:#12503a;--accent-soft:#e6f0ea;--amber:#8f6410;
+    --amber-soft:#f6ecd6;--red:#a83a3a;--track:#e7ece7;--tile:#fff;--shadow:none;
+  }
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  h1{font-size:2rem}
+  .lede{max-width:none}
+  /* nada de cortes feos a mitad de tarjeta */
+  .hero,.card,section.card,.scroll,.reco{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .foto,.hero-foto,.card,.hero{ -webkit-print-color-adjust:exact;print-color-adjust:exact }
+  h1,h2,h2.sec{break-after:avoid;page-break-after:avoid}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero-foto{min-height:0}
+  a.btn{color:#fff}
+  .foto img,.hero-foto img{mix-blend-mode:normal}
+}
 </style>
 <div class="wrap">
   <p class="eyebrow">Análisis de compra · Frigorífico</p>
